@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body class="register-page page-layout">
+  <!-- 🌌 Star effects -->
   <div class="stars"></div>
   <div class="shooting-star"></div>
   <div class="shooting-star"></div>
@@ -32,10 +33,10 @@
   </header>
 
   <main style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px 20px;">
-    <form id="registerForm">
-      <input type="text" id="name" placeholder="Your Name" required />
-      <input type="email" id="email" placeholder="Your Email" required />
-      <input type="number" id="age" placeholder="Your Age" min="0" required />
+    <form method="POST" action="https://script.google.com/macros/s/AKfycbzD2GxZUnm4BlzN3sCB1TBn7vfIiYyuYx7qkFciBXvb-VSUPb3lzCYjHdpa_D0TeHSDRw/exec" onsubmit="showThankYou(event)">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" required></textarea>
       <button type="submit">Submit</button>
     </form>
 
@@ -47,65 +48,29 @@
   </footer>
 
   <script>
-    const form = document.getElementById('registerForm');
-    const thankYou = document.getElementById('thankYouMessage');
-    const headline = document.getElementById('headline');
+    function showThankYou(e) {
+      e.preventDefault(); // Prevent redirect
+      const form = e.target;
 
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
+      const thankYou = document.getElementById('thankYouMessage');
+      thankYou.innerHTML = `🎉 Thank you for registering!`;
+      thankYou.style.display = 'block';
 
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const age = parseInt(document.getElementById('age').value);
-
-      if (isNaN(age) || age < 0) {
-        alert("Please enter a valid (non-negative) age.");
-        return;
-      }
-
-      fetch("https://script.google.com/macros/s/AKfycbzD2GxZUnm4BlzN3sCB1TBn7vfIiYyuYx7qkFciBXvb-VSUPb3lzCYjHdpa_D0TeHSDRw/exec", {
+      const formData = new FormData(form);
+      fetch(form.action, {
         method: "POST",
-        body: JSON.stringify({ name, email, age }),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      })
-      .then(res => res.text())
-      .then(response => {
-        thankYou.innerHTML = `
-          🎉 Thank you for registering!<br><br>
-          <strong>Name:</strong> ${name}<br>
-          <strong>Email:</strong> ${email}<br>
-          <strong>Age:</strong> ${age}
-        `;
-        thankYou.style.display = 'block';
-        headline.style.color = '#e74c3c';
-
-        setTimeout(() => askToRegisterAgain(), 2000);
-      })
-      .catch(err => {
-        alert("Failed to submit. Please try again.");
-        console.error(err);
+        body: formData
+      }).then(() => {
+        setTimeout(() => {
+          if (confirm("Submit another entry?")) {
+            form.reset();
+            thankYou.style.display = 'none';
+          } else {
+            window.location.href = "index.html";
+          }
+        }, 1500);
       });
-    });
-
-    function askToRegisterAgain() {
-      let answer = prompt("Would you like to register again? [y/n]");
-      if (answer && answer.toLowerCase() === 'y') {
-        form.reset();
-        thankYou.style.display = 'none';
-        headline.style.color = '#fff';
-      } else {
-        window.location.href = "index.html";
-      }
     }
-
-    window.addEventListener('pageshow', function (event) {
-      if (event.persisted) {
-        form.reset();
-        thankYou.style.display = 'none';
-      }
-    });
   </script>
 </body>
 </html>
