@@ -105,7 +105,6 @@
       bottom: 0;
     }
 
-    /* Star Effects */
     .stars, .shooting-star {
       position: absolute;
       width: 100%;
@@ -145,6 +144,7 @@
   </style>
 </head>
 <body class="register-page page-layout">
+  <!-- 🌌 Star effects -->
   <div class="stars"></div>
   <div class="shooting-star"></div>
   <div class="shooting-star"></div>
@@ -189,10 +189,12 @@
     <div class="thank-you" id="thankYouMessage" style="display:none;"></div>
   </main>
 
+  <!-- 🔻 Footer -->
   <footer>
     <p>© 2025 My Website</p>
   </footer>
 
+  <!-- 🧠 Script -->
   <script>
     const form = document.getElementById('registerForm');
     const thankYou = document.getElementById('thankYouMessage');
@@ -231,7 +233,8 @@
         thankYou.style.display = 'none';
         headline.style.color = '#fff';
       } else {
-        window.location.href = "index.html"; 
+        // ✅ Redirect to index.html instead of Home.html
+        window.location.href = "index.html";
       }
     }
 
