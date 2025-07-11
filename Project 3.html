@@ -5,36 +5,45 @@
   <title>Project 3</title>
   <link rel="stylesheet" href="style.css">
   <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      color: white;
+      background: linear-gradient(to bottom, #0b0b2b, #1b2735 70%, #090a0f);
+    }
+
     .project-center {
       display: flex;
       justify-content: center;
       align-items: center;
       padding: 60px 20px;
-      min-height: 60vh;
+      min-height: 100vh;
     }
 
     .transparent-box {
       background-color: rgba(255, 255, 255, 0.12);
       backdrop-filter: blur(10px);
-      padding: 20px;
+      padding: 30px;
       border-radius: 16px;
       box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
-      max-width: 1100px;
       width: 100%;
+      max-width: 1400px;
       text-align: center;
     }
 
     .transparent-box h2 {
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       color: #fff;
+      font-size: 2rem;
     }
 
     .transparent-box img {
-      width: 95%;
-      max-height: 400px;
-      object-fit: cover;
-      border-radius: 10px;
-      box-shadow: 0 6px 14px rgba(255, 255, 255, 0.2);
+      width: 100%;
+      max-width: 1200px;
+      max-height: 800px;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);
     }
 
     .back-arrow {
@@ -54,6 +63,43 @@
 
     .back-arrow button:hover {
       color: #aaa;
+    }
+
+    header {
+      background-color: #0a0a0a;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .logo-title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #aaa;
+    }
+
+    footer {
+      background-color: #000;
+      color: white;
+      text-align: center;
+      padding: 15px;
     }
   </style>
 </head>
