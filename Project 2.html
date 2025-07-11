@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Project 2</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .project2-center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 100px 30px;
+      min-height: 80vh;
+    }
+
+    .transparent-box {
+      background-color: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(14px);
+      padding: 80px 80px;
+      border-radius: 20px;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
+      max-width: 1200px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .transparent-box img {
+      width: 100%;
+      max-width: 1000px;
+      border-radius: 15px;
+      box-shadow: 0 8px 18px rgba(255, 255, 255, 0.25);
+    }
+
+    .back-arrow {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+    }
+
+    .back-arrow button {
+      background: transparent;
+      border: none;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    .back-arrow button:hover {
+      color: #aaa;
+    }
+  </style>
+</head>
+<body class="bg-project2 page-layout">
+  <div class="stars"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="back-arrow">
+    <button onclick="history.back()">←</button>
+  </div>
+
+  <header>
+    <div class="logo-title">
+      <img src="feutech_10.png" alt="Logo" class="logo">
+      <h1>Project 2</h1>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="registration.html">Registration</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="project2-center">
+      <div class="transparent-box">
+        <img src="Project 2.png" alt="Screenshot of Project 2">
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 My Website</p>
+  </footer>
+
+</body>
+</html>

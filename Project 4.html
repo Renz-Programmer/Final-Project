@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Project 4</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .project-center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 100px 20px;
+      min-height: 80vh;
+    }
+
+    .transparent-box {
+      background-color: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+      max-width: 1020px;
+      width: fit-content;
+      text-align: center;
+    }
+
+    .transparent-box h2 {
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .transparent-box img {
+      width: 100%;
+      max-width: 1000px;
+      border-radius: 12px;
+      box-shadow: 0 6px 14px rgba(255, 255, 255, 0.2);
+    }
+
+    .back-arrow {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+    }
+
+    .back-arrow button {
+      background: transparent;
+      border: none;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    .back-arrow button:hover {
+      color: #aaa;
+    }
+  </style>
+</head>
+<body class="bg-project4 page-layout">
+  <div class="stars"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div> 
+  <div class="back-arrow">
+    <button onclick="history.back()">←</button>
+  </div>
+
+  <header>
+    <div class="logo-title">
+      <img src="feutech_10.png" alt="Logo" class="logo">
+      <h1>Project 4</h1>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="About.html">About</a>
+      <a href="Contact.html">Contact</a>
+      <a href="Registration Form.html">Registration</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="project-center">
+      <div class="transparent-box">
+        <h2>RESUME</h2>
+        <img src="RESUME.png" alt="Screenshot of Project 4">
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 My Website</p>
+  </footer>
+</body>
+</html>

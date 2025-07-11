@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact Me</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body class="bg-contact page-layout">
+    <!-- 🌌 Star effects -->
+  <div class="stars"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <header>
+  <div class="back-arrow">
+    <button onclick="history.back()">←</button>
+  </div>
+  <div class="logo-title">
+    <img src="feutech_10.png" alt="Logo" class="logo">
+    <h1 id="headline">Contact Me</h1>
+  </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="registration.html">Registration</a>
+    </nav>
+  </header>
+
+  <main class="contact-main">
+    <section class="contact-form-container">
+      <form id="contact-form" method="post">
+        <input type="text" id="name" name="name" placeholder="Your Name" required />
+        <input type="email" id="email" name="email" placeholder="Your Email" required />
+        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+        <p class="success" id="response"></p>
+      </form>
+    </section>
+
+    <div class="social-media">
+      <a href="https://www.facebook.com/Renzy.Shao" target="_blank">
+        <img src="FB.png" alt="Facebook" width="40" />
+      </a>
+      <a href="https://www.instagram.com/renzzzzzzzzzzzy/" target="_blank">
+        <img src="IG.png" alt="Instagram" width="40" />
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 My Website</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const scriptURL = "https://script.google.com/macros/s/AKfycbx1T2BMFYcvaU1viuGTPruYDVgbK4l5EGeXuqmi4uUYH3u5I-7y7yPYi_uXHAhhZzCV-g/exec";
+      const form = document.getElementById("contact-form");
+      const responseMsg = document.getElementById("response");
+
+      form.addEventListener("submit", e => {
+        e.preventDefault();
+        const formData = new FormData(form);
+
+        fetch(scriptURL, {
+          method: "POST",
+          body: formData
+        })
+        .then(response => {
+          if (!response.ok) throw new Error("Network response was not ok");
+          return response.text();
+        })
+        .then(data => {
+          responseMsg.textContent = "Message sent successfully!";
+          responseMsg.style.color = "green";
+          form.reset();
+        })
+        .catch(error => {
+          responseMsg.textContent = "Error sending message.";
+          responseMsg.style.color = "red";
+          console.error("Error!", error.message);
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
