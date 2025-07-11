@@ -3,161 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <title>Registration Form</title>
+  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    body.register-page {
-      background: #0d0d0d;
-      color: #ffffff;
-      min-height: 100vh;
-      overflow-x: hidden;
-      position: relative;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-      background-color: rgba(0, 0, 0, 0.7);
-    }
-
-    .logo-title {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo {
-      height: 50px;
-    }
-
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      width: 100%;
-      max-width: 400px;
-      background-color: rgba(255, 255, 255, 0.05);
-      padding: 30px;
-      border-radius: 10px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-    }
-
-    input, button {
-      padding: 10px 15px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 5px;
-    }
-
-    input {
-      background: #222;
-      color: white;
-    }
-
-    input::placeholder {
-      color: #aaa;
-    }
-
-    button {
-      background-color: #e74c3c;
-      color: white;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #c0392b;
-    }
-
-    .thank-you {
-      margin-top: 20px;
-      text-align: center;
-      font-size: 1.2rem;
-      color: #00ff99;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: rgba(0, 0, 0, 0.7);
-      position: fixed;
-      width: 100%;
-      bottom: 0;
-    }
-
-    .stars, .shooting-star {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: transparent url('https://i.ibb.co/VYM9b4B/stars-bg.png') repeat;
-      z-index: -1;
-      animation: moveStars 100s linear infinite;
-    }
-
-    @keyframes moveStars {
-      0% { background-position: 0 0; }
-      100% { background-position: -10000px 5000px; }
-    }
-
-    .shooting-star {
-      background: transparent url('https://i.ibb.co/P9jwRP4/shooting-star.png') repeat;
-      animation: shooting 10s linear infinite;
-      opacity: 0.5;
-    }
-
-    @keyframes shooting {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(1000px, 1000px); }
-    }
-
-    .back-button button {
-      background: none;
-      color: white;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    .back-button button:hover {
-      color: #e74c3c;
-    }
-  </style>
 </head>
 <body class="register-page page-layout">
-  <!-- 🌌 Star effects -->
+    <!-- 🌌 Star effects -->
   <div class="stars"></div>
   <div class="shooting-star"></div>
   <div class="shooting-star"></div>
   <div class="shooting-star"></div>
   <div class="shooting-star"></div>
   <div class="shooting-star"></div>
-
-  <!-- 🔙 Back Button -->
   <div class="back-button" style="position: absolute; top: 20px; left: 20px;">
-    <button onclick="history.back()">←</button>
+    <button onclick="history.back()" style="font-size: 1.2rem;">←</button>
   </div>
 
-  <!-- 🔱 Header Section -->
   <header>
     <div class="logo-title">
       <img src="feutech_10.png" alt="Logo" class="logo">
@@ -171,30 +31,23 @@
     </nav>
   </header>
 
-  <!-- 📋 Main Form Section -->
   <main style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px 20px;">
     <form id="registerForm">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" placeholder="Your Name" required />
-
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="Your Email" required />
-
-      <label for="age">Age</label>
-      <input type="number" id="age" name="age" placeholder="Your Age" min="0" required />
-
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="email" id="email" placeholder="Your Email" required />
+      <input type="number" id="age" placeholder="Your Age" min="0" required />
       <button type="submit">Submit</button>
     </form>
 
     <div class="thank-you" id="thankYouMessage" style="display:none;"></div>
   </main>
 
-  <!-- 🔻 Footer -->
+  <!-- ✅ Footer Section -->
   <footer>
     <p>© 2025 My Website</p>
   </footer>
 
-  <!-- 🧠 Script -->
+  <!-- ✅ Script for Form Logic -->
   <script>
     const form = document.getElementById('registerForm');
     const thankYou = document.getElementById('thankYouMessage');
@@ -233,7 +86,6 @@
         thankYou.style.display = 'none';
         headline.style.color = '#fff';
       } else {
-        // ✅ Redirect to index.html instead of Home.html
         window.location.href = "index.html";
       }
     }
@@ -244,10 +96,7 @@
         thankYou.style.display = 'none';
       }
     });
-
-    window.onload = () => {
-      document.getElementById('name').focus();
-    };
   </script>
+
 </body>
 </html>
