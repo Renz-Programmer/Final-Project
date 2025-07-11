@@ -7,13 +7,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body class="register-page page-layout">
-    <!-- 🌌 Star effects -->
   <div class="stars"></div>
   <div class="shooting-star"></div>
   <div class="shooting-star"></div>
   <div class="shooting-star"></div>
   <div class="shooting-star"></div>
   <div class="shooting-star"></div>
+
   <div class="back-button" style="position: absolute; top: 20px; left: 20px;">
     <button onclick="history.back()" style="font-size: 1.2rem;">←</button>
   </div>
@@ -42,12 +42,10 @@
     <div class="thank-you" id="thankYouMessage" style="display:none;"></div>
   </main>
 
-  <!-- ✅ Footer Section -->
   <footer>
     <p>© 2025 My Website</p>
   </footer>
 
-  <!-- ✅ Script for Form Logic -->
   <script>
     const form = document.getElementById('registerForm');
     const thankYou = document.getElementById('thankYouMessage');
@@ -65,18 +63,30 @@
         return;
       }
 
-      thankYou.innerHTML = `
-        🎉 Thank you for registering!<br><br>
-        <strong>Name:</strong> ${name}<br>
-        <strong>Email:</strong> ${email}<br>
-        <strong>Age:</strong> ${age}
-      `;
-      thankYou.style.display = 'block';
-      headline.style.color = '#e74c3c';
+      fetch("https://script.google.com/macros/s/AKfycbzD2GxZUnm4BlzN3sCB1TBn7vfIiYyuYx7qkFciBXvb-VSUPb3lzCYjHdpa_D0TeHSDRw/exec", {
+        method: "POST",
+        body: JSON.stringify({ name, email, age }),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      .then(res => res.text())
+      .then(response => {
+        thankYou.innerHTML = `
+          🎉 Thank you for registering!<br><br>
+          <strong>Name:</strong> ${name}<br>
+          <strong>Email:</strong> ${email}<br>
+          <strong>Age:</strong> ${age}
+        `;
+        thankYou.style.display = 'block';
+        headline.style.color = '#e74c3c';
 
-      setTimeout(() => {
-        askToRegisterAgain();
-      }, 2000);
+        setTimeout(() => askToRegisterAgain(), 2000);
+      })
+      .catch(err => {
+        alert("Failed to submit. Please try again.");
+        console.error(err);
+      });
     });
 
     function askToRegisterAgain() {
@@ -97,6 +107,5 @@
       }
     });
   </script>
-
 </body>
 </html>
