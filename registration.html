@@ -47,35 +47,6 @@
   </footer>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const scriptURL = "https://script.google.com/macros/s/AKfycbyqG6vDZksUl25p_9V4mZlPMyk5lTRKUTtpGGU42BNBBqep1ykHck32cv8dvVJCgBAD/exec";
-      const form = document.getElementById("contact-form");
-      const responseMsg = document.getElementById("response");
-
-      form.addEventListener("submit", e => {
-        e.preventDefault();
-        const formData = new FormData(form);
-
-        fetch(scriptURL, {
-          method: "POST",
-          body: formData
-        })
-        .then(response => {
-          if (!response.ok) throw new Error("Network response was not ok");
-          return response.text();
-        })
-        .then(data => {
-          responseMsg.textContent = "Message sent successfully!";
-          responseMsg.style.color = "green";
-          form.reset();
-        })
-        .catch(error => {
-          responseMsg.textContent = "Error sending message.";
-          responseMsg.style.color = "red";
-          console.error("Error!", error.message);
-        });
-      });
-    });
     const form = document.getElementById('registerForm');
     const thankYou = document.getElementById('thankYouMessage');
     const headline = document.getElementById('headline');
