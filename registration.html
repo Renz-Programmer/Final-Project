@@ -14,9 +14,9 @@
       background: linear-gradient(to bottom, #0b0b2b, #1b2735 70%, #090a0f);
       height: 100vh;
       overflow: hidden;
+      position: relative;
       display: flex;
-      align-items: center;
-      justify-content: center;
+      flex-direction: column;
     }
 
     .stars, .shooting-star {
@@ -24,15 +24,56 @@
       z-index: 0;
     }
 
+    header {
+      background-color: #8B4513;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      z-index: 2;
+    }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .logo {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+    }
+
+    nav a {
+      color: #ffffff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    .form-wrapper {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+      position: relative;
+    }
+
     .form-container {
-      background: rgba(255, 255, 255, 0.07);
+      background: rgba(255, 255, 255, 0.08);
       border-radius: 16px;
       padding: 40px 50px;
       width: 100%;
       max-width: 500px;
       backdrop-filter: blur(10px);
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-      z-index: 1;
       text-align: center;
     }
 
@@ -75,7 +116,7 @@
       position: absolute;
       top: 20px;
       right: 20px;
-      z-index: 1;
+      z-index: 2;
     }
 
     .back-button button {
@@ -102,21 +143,36 @@
   <div class="shooting-star"></div>
   <div class="shooting-star"></div>
 
+  <header>
+    <div class="logo-title">
+      <img src="feutech_10.png" alt="Logo" class="logo">
+      <h1 id="headline">Registration</h1>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="registration.html">Registration</a>
+    </nav>
+  </header>
+
   <div class="back-button">
-    <button onclick="location.href='index.html'">← Back to Homepage</button>
+    <button onclick="location.href='index.html'">← Back</button>
   </div>
 
-  <div class="form-container">
-    <h1 id="headline">Register Below</h1>
+  <div class="form-wrapper">
+    <div class="form-container">
+      <h1 id="headline">Register Below</h1>
 
-    <form id="registerForm">
-      <input type="text" id="name" placeholder="Your Name" required />
-      <input type="email" id="email" placeholder="Your Email" required />
-      <input type="number" id="age" placeholder="Your Age" min="0" required />
-      <button type="submit">Submit</button>
-    </form>
+      <form id="registerForm">
+        <input type="text" id="name" placeholder="Your Name" required />
+        <input type="email" id="email" placeholder="Your Email" required />
+        <input type="number" id="age" placeholder="Your Age" min="0" required />
+        <button type="submit">Submit</button>
+      </form>
 
-    <div class="thank-you" id="thankYouMessage" style="display:none;"></div>
+      <div class="thank-you" id="thankYouMessage" style="display:none;"></div>
+    </div>
   </div>
 
   <script>
