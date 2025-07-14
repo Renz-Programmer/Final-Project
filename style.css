@@ -1,7 +1,12 @@
+/* Reset & Box Model */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  height: 100%;
 }
 
 body {
@@ -9,10 +14,11 @@ body {
   color: #fff;
   min-height: 100vh;
   background: linear-gradient(to bottom, #0b0b2b, #1b2735 70%, #090a0f);
-  overflow: hidden;
+  overflow-x: hidden; /* allows vertical scroll but blocks horizontal */
   position: relative;
 }
 
+/* Stars */
 .stars {
   width: 1px;
   height: 1px;
@@ -49,7 +55,7 @@ body {
   50% { opacity: 0.4; }
 }
 
-/* ✨ Shooting Stars */
+/* Shooting Stars */
 .shooting-star {
   position: absolute;
   width: 100px;
@@ -76,6 +82,7 @@ body {
   }
 }
 
+/* Layout */
 .page-layout {
   display: flex;
   flex-direction: column;
@@ -93,12 +100,11 @@ body {
 
 /* Header */
 header {
-  background-color: #0a0a0a; /* Night black */
+  background-color: #0a0a0a;
   color: #fff;
   padding: 20px;
   text-align: center;
 }
-
 
 .logo-title {
   display: flex;
@@ -115,17 +121,17 @@ header {
 
 /* Navigation */
 nav a {
-  color: #ffffff; /* Change from black to white for dark background */
+  color: #ffffff;
   margin: 0 15px;
   text-decoration: none;
   font-weight: bold;
 }
 
 nav a:hover {
-  color: #aaaaaa; /* Light gray on hover */
+  color: #aaaaaa;
 }
 
-
+/* Headline Animation */
 #headline {
   animation: colorChange 5s infinite alternate;
 }
@@ -138,6 +144,7 @@ nav a:hover {
   100% { color: purple; }
 }
 
+/* About */
 .about-flex {
   display: flex;
   gap: 30px;
@@ -164,7 +171,6 @@ nav a:hover {
   box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
 }
 
-/* Divider */
 .section-divider {
   border: none;
   height: 4px;
@@ -174,7 +180,7 @@ nav a:hover {
   border-radius: 2px;
 }
 
-/* Projects Section */
+/* Projects */
 .projects-section {
   margin-top: 80px;
   text-align: center;
@@ -222,6 +228,8 @@ nav a:hover {
   margin-top: 15px;
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
 }
+
+/* Contact */
 .contact-main {
   flex: 1;
   display: flex;
@@ -231,6 +239,7 @@ nav a:hover {
   padding: 40px 20px;
   z-index: 2;
 }
+
 footer {
   background-color: #000000;
   color: white;
@@ -239,6 +248,7 @@ footer {
   position: relative;
   z-index: 2;
 }
+
 .centered-main {
   display: flex;
   justify-content: center;
@@ -249,6 +259,7 @@ footer {
   min-height: 70vh;
 }
 
+/* Contact Form */
 .contact-form-container {
   background-color: rgba(255, 255, 255, 0.92);
   padding: 30px;
@@ -307,25 +318,126 @@ footer {
 .back-button button:hover {
   background-color: #222;
 }
+
 .about-box {
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(12px);
-  border-radius: 15px;
-  padding: 30px 40px;
-  max-width: 900px;
+  border-radius: 18px;
+  padding: 40px 50px;
+  max-width: 1100px;
   color: #fff;
-  font-size: 1rem;
-  line-height: 1.6;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
   text-align: justify;
 }
 
+.about-box h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  text-align: center;
+}
+
+/* Arrow */
+.back-arrow {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.back-arrow button {
+  background: transparent;
+  border: none;
+  font-size: 2.2rem;
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.back-arrow button:hover {
+  color: #ccc;
+}
+
+.thank-you {
+  margin-top: 20px;
+  color: #fff;
+  font-size: 1.1rem;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 15px 20px;
+  border-radius: 10px;
+  text-align: center;
+  animation: fadeIn 0.6s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Link Boxes */
+.links-box-section {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 40px 0;
+  flex-wrap: wrap;
+}
+
+.link-box {
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 25px 40px;
+  border-radius: 15px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  min-width: 250px;
+  text-align: center;
+}
+
+.link-box:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.iframe-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  height: 800px;
+  margin: 40px auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.iframe-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Make About Section Centered */
 .about-main-center {
-  flex: 1;
+  min-height: calc(100vh - 140px); /* header + footer approx. */
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 60px 20px;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 1;
   text-align: center;
 }
 
@@ -366,63 +478,4 @@ footer {
 
 .back-arrow button:hover {
   color: #ccc;
-
-
-.thank-you {
-  margin-top: 20px;
-  color: #fff;
-  font-size: 1.1rem;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 15px 20px;
-  border-radius: 10px;
-  text-align: center;
-  animation: fadeIn 0.6s ease-in-out forwards;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.links-box-section {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin: 40px 0;
-  flex-wrap: wrap;
-}
-
-.link-box {
-  background-color: rgba(255, 255, 255, 0.12);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  padding: 25px 40px;
-  border-radius: 15px;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.1rem;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-  min-width: 250px;
-  text-align: center;
-}
-
-.link-box:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  transform: scale(1.05);
-}
-.iframe-wrapper {
-  width: 100%;
-  max-width: 1200px;
-  height: 800px;
-  margin: 40px auto;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-}
-
-.iframe-wrapper iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
 }
