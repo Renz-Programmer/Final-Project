@@ -3,49 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <title>Registration Form</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
-<body class="register-page page-layout">
-  <!-- 🌌 Star effects -->
+<body class="register-page">
+  
+<body class="page-layout">
   <div class="stars"></div>
   <div class="shooting-star"></div>
   <div class="shooting-star"></div>
   <div class="shooting-star"></div>
   <div class="shooting-star"></div>
   <div class="shooting-star"></div>
-
-  <div class="back-button" style="position: absolute; top: 20px; left: 20px;">
-    <button onclick="history.back()" style="font-size: 1.2rem;">←</button>
+  
+  <div class="back-button top-right">
+    <button onclick="location.href='index.html'">← Back to Homepage</button>
   </div>
 
-  <header>
-    <div class="logo-title">
-      <img src="feutech_10.png" alt="Logo" class="logo">
-      <h1 id="headline">Register Below</h1>
-    </div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About Me</a>
-      <a href="contact.html">Contact Me</a>
-      <a href="registration.html">Registration</a>
-    </nav>
-  </header>
+  <h1 id="headline">Register Below</h1>
 
-  <main style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px 20px;">
-    <form method="POST" action="https://script.google.com/macros/s/AKfycbzD2GxZUnm4BlzN3sCB1TBn7vfIiYyuYx7qkFciBXvb-VSUPb3lzCYjHdpa_D0TeHSDRw/exec" onsubmit="showThankYou(event)">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit">Submit</button>
-    </form>
+  <form id="registerForm">
+    <input type="text" id="name" placeholder="Your Name" required />
+    <input type="email" id="email" placeholder="Your Email" required />
+    <input type="number" id="age" placeholder="Your Age" min="0" required />
+    <button type="submit">Submit</button>
+  </form>
 
-    <div class="thank-you" id="thankYouMessage" style="display:none;"></div>
-  </main>
-
-  <footer>
-    <p>© 2025 My Website</p>
-  </footer>
+  <div class="thank-you" id="thankYouMessage" style="display:none;"></div>
 
 <script>
   const form = document.getElementById('registerForm');
@@ -112,5 +96,6 @@
     }
   });
 </script>
+
 </body>
 </html>
