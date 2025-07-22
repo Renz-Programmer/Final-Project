@@ -178,8 +178,16 @@
     const form = document.getElementById('registerForm');
     const thankYou = document.getElementById('thankYouMessage');
     const headline = document.getElementById('headline');
+    const ageInput = document.getElementById('age');
 
     const scriptURL = 'https://script.google.com/macros/s/AKfycbwSP2lQ9MayjhEGo3pz5V0mJJbzCV50PrXYqJ6svbLrhdTmpy9G1Dsb5TDxJucbPcx9Hw/exec';
+
+    // Prevent 0 from being entered in age
+    ageInput.addEventListener('input', function () {
+      if (this.value.startsWith('0')) {
+        this.value = '';
+      }
+    });
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
