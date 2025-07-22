@@ -25,7 +25,7 @@
     }
 
     header {
-      background-color: #0b0b2b; /* midnight black */
+      background-color: #0b0b2b;
       color: white;
       padding: 20px;
       text-align: center;
@@ -166,7 +166,7 @@
       <form id="registerForm">
         <input type="text" id="name" placeholder="Your Name" required />
         <input type="email" id="email" placeholder="Your Email" required />
-        <input type="number" id="age" placeholder="Your Age" min="0" required />
+        <input type="number" id="age" placeholder="Your Age" min="1" required />
         <button type="submit">Submit</button>
       </form>
 
@@ -188,8 +188,8 @@
       const email = document.getElementById('email').value.trim();
       const age = parseInt(document.getElementById('age').value);
 
-      if (isNaN(age) || age < 0) {
-        alert("Please enter a valid (non-negative) age.");
+      if (isNaN(age) || age < 1) {
+        alert("Please enter a valid age (1 or older).");
         return;
       }
 
